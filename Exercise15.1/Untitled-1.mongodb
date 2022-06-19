@@ -1,0 +1,16 @@
+
+
+use('exrecise15_1')
+
+//ran this 5 times with diffrent names
+db.resturants.insertOne({
+  name:"tortila",
+  address: {city:"eilat", street: "ducks",coordinates:  [22,334, 22.677] },
+  type:"mexiacan",
+  kosher: true,
+  rating: [
+    {date:'24-1-2002', score:2},
+    {date:'24-3-2002', score:3},
+    {date:'24-5-2005', score:3},
+    ]
+  })
