@@ -2,15 +2,42 @@
 
 use('exrecise15_1')
 
-//ran this 5 times with diffrent names
-db.resturants.insertOne({
-  name:"tortila",
-  address: {city:"eilat", street: "ducks",coordinates:  [22,334, 22.677] },
-  type:"mexiacan",
-  kosher: true,
-  rating: [
-    {date:'24-1-2002', score:2},
-    {date:'24-3-2002', score:3},
-    {date:'24-5-2005', score:3},
-    ]
-  })
+
+// 1.1 – Write a MongoDb query to display all the documents in
+// the restaurant collection.
+//! db.resturants.find()
+// 1.2 - Write a MongoDb query to display all restaurants that
+// have a specific cuisine
+//! db.resturants.find({type:"italian"})
+// 1.3 - Write a MongoDb query that displays only kosher
+// restaurants
+//! db.resturants.find({kosher: true})
+// 1.4 - Write a MongoDb query that displays only a specific cities
+// restaurants
+//! db.resturants.find({"address.city":"hadera"})
+// 1.5 - Write a MongoDb query to display a specific restaurants
+// address
+//! db.resturants.find({},{address: 1})
+
+// 1.6 - Write a MongoDb query to display a specific restaurants
+// coordinates
+//! db.resturants.find({},{coordinates: 1})
+// 1.7. - Write a MongoDb query that should display all
+// restaurants in ascending order by restaurant name.
+//! db.resturants.find({},{name: 1}).sort()
+// 1.8 - Write a MongoDb query that should display all restaurants
+// in ascending order by city names.
+//! db.resturants.find({},{"address.city": 1}).sort()
+// 1.9 - Update a specific restaurant's name
+//! db.resturants.updateOne({name:"avi fish"},{$set:{name: "avi seafood"}})
+// 1.10 - Update a specific restaurant by adding a new review.
+// ! db.resturants.updateOne({name:"avi seafood"},{$push:{rating: {
+// !      "date": "24-1-2022",
+// !      "score": 6
+// !    }}})
+// 1.11 - Update all restaurants to be kosher
+//! db.resturants.updateMany({kosher:{$exists:true}},{$set: {kosher: true}})
+// 1.12 - Delete a specific restaurant
+//! db.resturants.deleteOne({name:"avi seafood"})
+// 1.13 - Delete all restaurants
+//! db.resturants.deleteMany({name:{$exists:true}})
