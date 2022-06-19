@@ -41,3 +41,4 @@ use('exrecise15_1')
 //! db.resturants.deleteOne({name:"avi seafood"})
 // 1.13 - Delete all restaurants
 //! db.resturants.deleteMany({name:{$exists:true}})
+//
