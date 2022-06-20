@@ -22,7 +22,7 @@ const product = mongoose.model('product',{
     date: {
       type: Date,
       immutable: true,
-      default: ()=> new Date.now(),
+      default: ()=> new Date(),
     }
   },
 })
@@ -31,14 +31,14 @@ const product = mongoose.model('product',{
 async function run(){
   try{
     const newProduct = await product.create({
-      name: "Dog Chew Toys for Puppy ", 
-    category:"Dog ", 
+      name: "Dog Chew Toys for Big dog ", 
+    category:"Dog", 
     details: {
-      description: 'Treat Balls and Dog Squeaky Toy for Puppy and Small Dogs',
+      description: ' Squeaky Toy for Puppy and Small Dogs',
       price: 22.99,
-      discount: 1,
+      discount: 2,
       images: ['image1sec','image2src','image3src'],
-      phone: '+972664545755',
+      phone: '+97266444445',
     }
   })
   console.log(newProduct);
