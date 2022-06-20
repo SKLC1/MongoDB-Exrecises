@@ -17,11 +17,11 @@ use('exrecise15_1')
 //! db.resturants.find({"address.city":"hadera"})
 // 1.5 - Write a MongoDb query to display a specific restaurants
 // address
-//! db.resturants.find({},{address: 1})
+ db.resturants.find({},{address: 1})
 
 // 1.6 - Write a MongoDb query to display a specific restaurants
 // coordinates
-//! db.resturants.find({},{coordinates: 1})
+//!  db.resturants.find({},{coordinates: 1})
 // 1.7. - Write a MongoDb query that should display all
 // restaurants in ascending order by restaurant name.
 //! db.resturants.find({},{name: 1}).sort()

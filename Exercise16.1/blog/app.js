@@ -1,4 +1,4 @@
-import { MongoClient } from "mongodb"
+import { MongoClient, ObjectId } from "mongodb"
 
 // Connection URL
 const url = 'mongodb://localhost:27017';
@@ -57,6 +57,7 @@ async function addComment(username, postID, content){
     if(error){
       return console.log("cant insert user");
     }
+    console.log(postID);
     console.log(result);
     addCommentToUser(username, result.insertedId)
     addCommentToPost(postID, result.insertedId)
@@ -69,4 +70,4 @@ async function addCommentToUser(username,commentID){
 async function addCommentToPost(postID,commentID){ 
   db.collection('posts').updateOne({_id: postID},{$push:{comments: commentID}})
 }
-addComment("Walter White",db.collection('posts').find({_id: "62b042b8f044502113b81f0f"},{_id:1}) ,"nice post")
+addComment("Walter White",new ObjectId("62b042b8f044502113b81f0f"),"nice post")
