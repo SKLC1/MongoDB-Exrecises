@@ -29,8 +29,9 @@ const product = mongoose.model('product',{
 
 
 async function run(){
-  const newProduct = await product.create({
-    name: "Dog Chew Toys for Puppy ", 
+  try{
+    const newProduct = await product.create({
+      name: "Dog Chew Toys for Puppy ", 
     category:"Dog ", 
     details: {
       description: 'Treat Balls and Dog Squeaky Toy for Puppy and Small Dogs',
@@ -41,5 +42,8 @@ async function run(){
     }
   })
   console.log(newProduct);
+  } catch (err){
+    console.log(err);
+  }
 }
 run()
